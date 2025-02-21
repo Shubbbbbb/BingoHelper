@@ -6,7 +6,7 @@
 //        API_KEY = data.APIKey
 //    })
 
-API_KEY = "d2abe028-3761-41d6-b866-9e29de3fc7c6"
+API_KEY = ""
 
 var getPla = null
 var firstLoad = true
