@@ -1,0 +1,54 @@
+div#timer {
+    width: 99vw;
+
+    position: fixed;
+    top: 40vh;
+    transform: translate(0px, -128px);
+
+    text-align: center;
+
+    font-size: 6vh;
+
+    user-select: none;
+}
+
+div#eventsDisplay {
+    width: 99vw;
+
+    position: absolute;
+    top: 65vh;
+
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+span#activeEventsText {
+    text-align: center;
+    font-size: 32px;
+
+    &.empty {
+        visibility: hidden;
+    }
+}
+
+div#activeEvents {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+
+    & img {
+        width: 96px;
+        height: 96px;
+    
+        margin: 16px 32px;
+
+        &#darkAuctionIcon, #zooIcon {
+            width: 88px !important;
+            height: 88px !important;
+        
+            transform: translate(0px, -4px);
+        }
+    }
+}

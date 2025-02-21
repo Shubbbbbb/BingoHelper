@@ -1,0 +1,412 @@
+div#spacer {
+    height: 0px;
+
+    display: flex;
+    justify-content: center;
+    overflow: visible;
+}
+
+span.weekDay {
+    width: 0px;
+
+    margin: 0px 110px 0px 110px;
+    transform: translate(332px, 24px);
+
+    overflow: visible;
+
+    font-size: 64px;
+
+    user-select: none;
+}
+
+div#wrapper {
+    height: 88vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div#calendar {
+    width: 1504px;
+    height: 1048px;
+    padding: 24px 24px;
+
+    margin: auto;
+    top: 50%;
+    transform: translate(384px, 40px);
+
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #303030;
+}
+
+block {
+    width: 190px;
+    height: 190px;
+
+    margin: auto;
+
+    background-color: #353535;
+    color: #D7D7D7;
+
+    border: 4px solid #606060;
+    opacity: 0.5;
+    user-select: none;
+
+    &.thisMonth {
+        background-color: #454545;
+        color: #D7D7D7;
+
+        opacity: 0.75;
+    }
+
+    &.currentDay {
+        border: 4px solid #B6C59A;
+    }
+}
+
+span.date {
+    position: absolute;
+    transform: translate(140px, 170px);
+}
+
+img {
+    &.bingoIcon {
+        width: 88px;
+        height: 88px;
+
+        position: absolute;
+        transform: translate(96px, 2px);
+    }
+
+    &.workshopIcon {
+        width: 64px;
+        height: 64px;
+
+        position: absolute;
+        transform: translate(8px, 8px);
+    }
+
+    &.electionIcon {
+        width: 64px;
+        height: 64px;
+
+        position: absolute;
+        transform: translate(8px, 124px);
+    }
+    &.derpyIcon {
+        width: 42px;
+        height: 42px;
+
+        transform: translate(18px, 134px);
+    }
+    &.jerryIcon {
+        width: 38px;
+        height: 50px;
+
+        transform: translate(21px, 132px);
+    }
+}
+
+div#mayorDisplay {
+    width: 30vw;
+
+    position: absolute;
+    top: 8vh;
+    transform: translate(-10%, 32px);
+
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+
+    &.noMinister {
+        transform: translate(2%, 32px);
+    }
+}
+
+div#mayorAlign {
+    width: 30vw;
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+span#currentMayorName {
+    width: auto;
+
+    margin-right: 16px;
+
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    font-size: 64px;
+}
+
+img.mayorIcon {
+    width: 64px;
+    height: 64px;
+
+    user-select: none;
+
+    &.noSquish {
+        width: 52px;
+        height: 70px;
+    }
+}
+
+div.tooltipContainer {
+    width: 64px;
+    height: 64px;
+
+    position: relative;
+    margin: 16px;
+
+    display: inline-block;
+    align-content: center;
+    text-align: center;
+
+    background-color: #303030;
+    font-size: 32px;
+
+    border: 2px solid #B6C59A;
+    border-radius: 4px;
+    user-select: none;
+
+    &.disabled {
+        border: 2px solid #606060;
+        opacity: 40%;
+    }
+
+    &:hover .tooltip {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &.minister {
+        width: 48px;
+        height: 48px;
+
+        margin: 24px;
+
+        font-size: 32px;
+
+        &::after {
+            margin-left: -13px;
+        }
+    }
+}
+
+div.tooltip {
+    width: 256px;
+    height: auto;
+    padding: 4px;
+
+    position: absolute;
+    transform: translate(-40%, 32px);
+
+    text-align: center;
+
+    background-color: black;
+    color: #D7D7D7;
+
+    border-radius: 6px;
+    visibility: hidden;
+    opacity: 0;
+    transition-duration: 0.25s;
+
+    &::after {
+        position: absolute;
+        margin-left: -5px;
+        bottom: 100%;  /* At the top of the tooltip */
+        left: 50%;
+        
+        content: " ";
+
+        border: 10px solid;
+        border-color: transparent transparent black transparent;
+    }
+
+    &.candidateTooltip {
+        transform: translate(-40%, 88px);
+        z-index: 1;
+    }
+}
+
+div.tooltipSrc:hover div.tooltip {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+span.currentPerkName {
+    width: 30vw;
+
+    text-align: center;
+
+    font-weight: bold;
+    font-size: 32px;
+}
+
+span.currentPerkDesc {
+    font-size: 24px;
+}
+
+
+div#ministerDisplay {
+    width: 10vw;
+    
+    position: absolute;
+    top: 8vh;
+    transform: translate(560px, 64px);
+
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+div#ministerAlign {
+    width: 10vw;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+span#currentMinisterName {
+    width: auto;
+
+    margin-right: 12px;
+
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    font-size: 32px;
+}
+
+img#ministerIcon {
+    width: 32px;
+    height: 32px;
+
+    user-select: none;
+}
+
+div#candidates {
+    width: 640px;
+    height: 672px;
+
+    position: absolute;
+    transform: translate(128px, -760px);
+
+    display: flex;
+    flex-flow: row;
+
+    user-select: none;
+    z-index: 0;
+}
+
+div.candidate {
+    margin: 0px 32px;
+}
+
+img.candidateIcon {
+    width: 64px;
+    height: 64px;
+}
+
+div.tooltipSrc {
+    width: 64px;
+    height: 64px;
+}
+
+progress {
+    width: 512px;
+    height: 32px;
+
+    position: absolute;
+    transform:  translate(-224px, 264px) rotate(270deg);
+
+    clear: both;
+
+    background-color: #303030;
+    color: black;
+
+    border-radius: 4px;
+    -webkit-appearence: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+
+    &::-moz-progress-bar {
+        background-color: #B6C59A;  /*this sets a default color*/
+    }
+    &::-webkit-progress-value {
+        background-color: #B6C59A;  /*this sets a default color*/
+    }
+
+    &.nextMayor {
+        -webkit-box-shadow: 0 0 25px #C1CB68, inset 0 0 25px #C1CB68; 
+        -moz-box-shadow: 0 0 25px #C1CB68, inset 0 0 25px #C1CB68; 
+        box-shadow: 0 0 25px #C1CB68, inset 0 0 25px #C1CB68;
+    }
+    &.nextMinister::-moz-progress-bar {
+        -webkit-box-shadow: 0 0 25px #C1CB68, inset 0 0 35px #C1CB68; 
+        -moz-box-shadow: 0 0 25px #C1CB68, inset 0 0 35px #C1CB68; 
+        box-shadow: 0 0 25px #C1CB68, inset 0 0 35px #C1CB68;
+    }
+
+    &.noElection::-moz-progress-bar {
+        background-color: #252525;
+    }
+}
+
+span.placement {
+    position: absolute;
+    transform: translate(16px, -128px);
+
+    font-weight: bold;
+    font-size: 40px;
+
+    opacity: 0.5;
+
+    &.nextMayor {
+        color: #d4af37;
+    }
+    &.nextMinister {
+        color: #e2e2e3;
+        opacity: 0.75;
+    }
+}
+
+span.percent {
+    position: absolute;
+    transform: translate(12px, 544px);
+
+    text-align: center;
+
+    font-size: 32px;
+
+    opacity: 0.9;
+}
+
+.currentPerkName.ministerPerk, .currentPerkDesc.ministerPerk {
+    color: #B6C59A !important;
+}
+
+span#electionStatus {
+    width: 640px;
+
+    position: absolute;
+    transform: translate(0px, -64px);
+
+    text-align: center;
+
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 40px;
+}

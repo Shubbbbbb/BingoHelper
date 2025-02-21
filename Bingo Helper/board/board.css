@@ -1,0 +1,349 @@
+div#wrapper {
+    height: 88vh;
+
+    display: flex;
+    flex-flow: column-reverse wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+board {
+    width: 1088px;
+    height: 1088px;
+    padding: 8px;
+
+    margin: auto;
+    transform: translate(512px, 24px);
+
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #252525;
+
+    & goal {
+        width: 192px;
+        height: 192px;
+        padding: 4px;
+
+        margin: auto;
+
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        background-color: #454545;
+        font-size: 16px;
+
+        border: 4px solid #606060;
+        user-select: none;    
+        cursor: pointer;
+
+        &.community {
+            background-color: #505050;
+        }
+
+        &.completed {
+            border: 4px solid #98a581;
+        }
+        &.marked {
+            border: 4px solid #DCA147;
+        }
+
+        & name {
+            font-weight: bold;
+            font-size: 30px;
+        }
+
+        & tier {
+            position: absolute;
+            transform: translate(0px, 72px);
+
+            clear: both;
+
+            font-size: 18px;
+        }
+
+        & progress {
+            width: 160px;
+            height: 8px;
+        
+            position: absolute;
+            transform: translate(0px, 88px);
+        
+            clear: both;
+        
+            background-color: #353535;
+            color: black;
+        
+            border-radius: 7px;
+            -webkit-appearence: none;
+            -moz-appearance: none;
+            appearance: none;
+            border: none;
+        
+            &::-moz-progress-bar {
+                background-color: #B6C59A;
+            }
+            &::-webkit-progress-value {
+                background-color: #B6C59A;
+            }
+        }
+    }
+}
+
+span#title {
+    position: absolute;
+    transform: translate(512px, -568px);
+
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 64px;
+}
+
+div#playerSearch {
+    position: absolute;
+    top: 128px;
+    left: 144px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input#searchField {
+    width: 384px;
+    height: 48px;
+
+    position: relative;
+    margin: 16px;
+
+    text-align: left;
+
+    background-color: #252525;
+    color: #D7D7D7;
+    font-size: 24px;
+
+    border: 3px solid #454545;
+    outline: none;
+    transition: background-color, 0.5s;
+
+    &:focus {
+        background-color: #303030;
+        border: 3px solid #B6C59A;
+    }
+
+    &:placeholder-shown  {
+        text-align: center !important;
+    }
+}
+
+button#searchButton {
+    width: 128px;
+    height: 48px;
+
+    position: relative;
+
+    background-color: #202020;
+    color: #D7D7D7;
+    font-size: 16px;
+    
+    border: 3px solid #454545;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #353535;
+        border: 3px solid #505050;
+    }
+
+    &:active {
+        background-color: #454545;
+        border: 3px solid #B6C59A;
+    }
+}
+
+span#currentSearch, span#searchedPlayer {
+    width: 256px;
+    
+    position: absolute;
+    left: 64px;
+    transform: translate(0px, 32px);
+
+    color: #656565;
+    font-size: 28px;
+}
+
+span#searchedPlayer {
+    width: 256px;
+
+    left: 320px;
+
+    text-align: center;
+
+    color: #757575;
+}
+
+img#headIcon {
+    width: 128px;
+    height: 128px;
+
+    transform: translate(8px, 24px);
+
+    &:not([src]) {
+        visibility: hidden;
+    }
+}
+
+button#stopSearch {
+    width: 32px;
+    height: 32px;
+
+    position: relative;
+    bottom: 0px;
+    left: 0px;
+    transform: translate(-528px, 64px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background-color: transparent;
+    color: #D7D7D7;
+    font-size: 32px;
+
+    border: none;
+    opacity: 0.15;
+    cursor: pointer;
+
+    &:empty {
+        visibility: hidden;
+    }
+}
+
+div#notesDisplay {
+    position: absolute;
+    top: 30%;
+    left: 6%;
+
+    display: flex;
+    flex-flow: column;
+}
+
+div.notesContainer {
+    width: 832px;
+    height: 64px;
+
+    margin: 0 0 16px 0;
+}
+
+button#notesButton {
+    width: 48px;
+    height: 48px;
+
+    background-color: #353535;
+    color: #D7D7D7;
+    font-size: 32px;
+
+    border: 3px solid #505050;
+    transition: border 0.1s;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #404040;
+        border: 3px solid #606060;
+    }
+
+    &:active {
+        background-color: #454545;
+        border: 3px solid #B6C59A;
+    }
+}
+
+input.note {
+    width: 768px;
+    height: 32px;
+
+    margin: 0 0 32px 0;
+    left: 0px;
+
+    text-indent: 48px;
+
+    background-color: transparent;
+    color: #D7D7D7;
+    font-size: 24px;
+
+    border: none;
+    border-bottom: 4px solid #505050;
+    transition: border-bottom, 0.25s;
+
+    &:focus {
+        border-bottom: 4px solid #B6C59A;
+        outline: none;
+    }
+
+    &.done {
+        text-decoration: line-through;
+    }
+}
+
+button.completeButton {
+    width: 32px;
+    height: 32px;
+
+    position: absolute;
+    left: 0px;
+    transform: translate(0px, -4px);
+
+    background-color: #353535;
+    
+    border: 4px solid #454545;
+    transition: border 0.1s;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #353535;
+        border: 4px solid #505050;
+    }
+
+    &:active {
+        background-color: #454545 !important;
+        border: 4px solid #B6C59A !important;
+    }
+}
+
+img.completeImg {
+    width: 28px;
+    height: 28px;
+
+    transform: translate(-5px, -3px);
+
+    opacity: 0;
+
+    &:hover {
+        opacity: 0.2;
+    }
+
+    &.done {
+        opacity: 0.8;
+    }
+}
+
+button.removeNoteButton {
+    width: 32px;
+    height: 32px;
+
+    text-align: center;
+
+    background-color: transparent;
+    color: #D7D7D7;
+    font-size: 32px;
+
+    border: none;
+    opacity: 0.15;
+    cursor: pointer;
+}
