@@ -49,8 +49,44 @@ function secondsInTimer() {
     }
 }
 
-function liveUpdating() {
+function specialMayorsOnCalendar() {
     const checkmark = document.getElementById("checkmark2")
+
+    checkmark.classList.toggle("active")
+    showSpecialMayors = !showSpecialMayors
+    setCookie("specialMayorCalendar", showSpecialMayors)
+
+    if (showSpecialMayors == true) {
+        getCalendar()
+    } else {
+        try {
+            document.querySelectorAll('.derpyIcon').forEach(element => element.remove());
+        } catch {}
+        try {
+            document.querySelectorAll('.jerryIcon').forEach(element => element.remove());
+        } catch {}
+    }
+}
+
+function mcColours() {
+    const checkmark = document.getElementById("checkmark3")
+
+    checkmark.classList.toggle("active")
+    showMCCoulours = !showMCCoulours
+    setCookie("showMCColours", showMCCoulours)
+
+    try {
+        if (firstLoad == false) {
+            getBingoBoard()
+        }
+    } catch {}
+    try {
+        getMayorElectionData()
+    } catch {}
+}
+
+function liveUpdating() {
+    const checkmark = document.getElementById("checkmark4")
 
     checkmark.classList.toggle("active")
     liveUpdates = !liveUpdates
@@ -75,42 +111,6 @@ function liveUpdating() {
     }
 
     console.log(liveUpdates)
-}
-
-function specialMayorsOnCalendar() {
-    const checkmark = document.getElementById("checkmark3")
-
-    checkmark.classList.toggle("active")
-    showSpecialMayors = !showSpecialMayors
-    setCookie("specialMayorCalendar", showSpecialMayors)
-
-    if (showSpecialMayors == true) {
-        getCalendar()
-    } else {
-        try {
-            document.querySelectorAll('.derpyIcon').forEach(element => element.remove());
-        } catch {}
-        try {
-            document.querySelectorAll('.jerryIcon').forEach(element => element.remove());
-        } catch {}
-    }
-}
-
-function mcColours() {
-    const checkmark = document.getElementById("checkmark4")
-
-    checkmark.classList.toggle("active")
-    showMCCoulours = !showMCCoulours
-    setCookie("showMCColours", showMCCoulours)
-
-    try {
-        if (firstLoad == false) {
-            getBingoBoard()
-        }
-    } catch {}
-    try {
-        getMayorElectionData()
-    } catch {}
 }
 
 function setCookie(cName, cValue) {
