@@ -1,11 +1,3 @@
-// fetch("../API_KEY")
-//    .then((response) => {
-//        return response.json();
-//    })
-//    .then((data) => {
-//        API_KEY = data.APIKey
-//    })
-
 API_KEY = ""
 
 var getPla = null
