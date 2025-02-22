@@ -162,6 +162,7 @@ function getCalendar() {
     }
 }
 
+function getMayorElectionData() {
     fetch("https://api.hypixel.net/v2/resources/skyblock/election")
     .then((response) => {
         if (!response.ok) {
@@ -170,11 +171,13 @@ function getCalendar() {
         return response.json();
     })
     .then((data) => {
-        currentMayorDisplay = document.getElementById("main")
+        const mayorElectionDisplay = document.getElementById("mayorElection")
+        
+        while (mayorElectionDisplay.hasChildNodes()) {
+            mayorElectionDisplay.removeChild(mayorElectionDisplay.firstChild);
+        }
 
         //
-
-        electionDisplay = document.getElementById("main")
 
         candidateGroup = document.createElement("div")
         candidateGroup.id = "candidates"
@@ -313,7 +316,7 @@ function getCalendar() {
                 candidateGroup.append(candidateI)
             }
 
-            electionDisplay.appendChild(candidateGroup)
+            mayorElectionDisplay.appendChild(candidateGroup)
 
             for (let tempInt = 0; tempInt < 5 && notClosed == true; tempInt ++) {
                 percentVotes = (data.current.candidates[tempInt].votes / highestVotes) * 100
@@ -364,7 +367,7 @@ function getCalendar() {
 
             candidateGroup.append(electionStatus)
 
-            electionDisplay.appendChild(candidateGroup)
+            mayorElectionDisplay.appendChild(candidateGroup)
         }
 
         //
@@ -437,7 +440,7 @@ function getCalendar() {
             currentMayor.appendChild(tooltip)
         }
 
-        currentMayorDisplay.appendChild(currentMayor)
+        mayorElectionDisplay.appendChild(currentMayor)
 
         //
         try {
@@ -497,14 +500,14 @@ function getCalendar() {
 
             currentMinister.appendChild(tooltip)
             
-            currentMayorDisplay.appendChild(currentMinister)
+            mayorElectionDisplay.appendChild(currentMinister)
         }
         catch {
             // code for handling special mayors (or if no minister data is found)
             currentMayor.classList.add("noMinister")
         }
     })
-
+}
 
 function getDays(tempMonth) {
     switch (tempMonth) {

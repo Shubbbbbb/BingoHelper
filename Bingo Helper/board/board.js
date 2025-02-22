@@ -8,22 +8,22 @@ var nINT = 0
 var notesButton
 var nodeRemoved = false
 
+// checks if a username is saved in cookies and loads their data if it is found
+if (getCookie("playerName") != "") {
+    getPlayerData()
+}
+
+// sets note data if found
+for (cTempInt = 0; cTempInt < getCookie("noteAmount"); cTempInt ++) {
+    newNote()
+}
+
 function getBingoBoard() {
-    // checks if a username is saved in cookies and loads their data if it is found
-    if (getCookie("playerName") != "" && firstLoad == true) {
-        getPlayerData()
-    }
-
-    // sets note data if found
-    for (cTempInt = 0; cTempInt < getCookie("noteAmount") && firstLoad == true; cTempInt ++) {
-        newNote()
-    }
-
     // creates references to HTML elements for appending elements using JS
     const bingoTitle = document.getElementById("wrapper")
     const goalList = document.getElementById("board")
 
-    // removes all child nodes so that new elements can be appended
+    // removes all children so that new elements can be appended
     while (goalList.hasChildNodes()) {
         goalList.removeChild(goalList.firstChild);
     }

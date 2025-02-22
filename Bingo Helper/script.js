@@ -9,15 +9,17 @@ if (getCookie("liveUpdates") == "false") {
     currentEventRefresh = setInterval(getCurrentEvents, 60000);
     } catch {}
 }
-
 timerSeconds = false
 if (getCookie("timerSeconds") == "true") {
     secondsInTimer()
 }
-
 showSpecialMayors = true
 if (getCookie("specialMayorCalendar") == "false") {
     specialMayorsOnCalendar()
+}
+showMCCoulours = true
+if (getCookie("showMCColours") == "false") {
+    mcColours()
 }
 
 function burgerMenu() {
@@ -94,6 +96,23 @@ function specialMayorsOnCalendar() {
     }
 }
 
+function mcColours() {
+    const checkmark = document.getElementById("checkmark4")
+
+    checkmark.classList.toggle("active")
+    showMCCoulours = !showMCCoulours
+    setCookie("showMCColours", showMCCoulours)
+
+    try {
+        if (firstLoad == false) {
+            getBingoBoard()
+        }
+    } catch {}
+    try {
+        getMayorElectionData()
+    } catch {}
+}
+
 function setCookie(cName, cValue) {
     // does some mathy stuff to get the month and year of the next month
     year = new Date().getFullYear
@@ -111,7 +130,7 @@ function setCookie(cName, cValue) {
     let expires = "expires=" + expDate.toUTCString();
 
     // adds the name and value of the cookie in the syntax along with the expiration date
-    document.cookie = cName + "=" + cValue + ";" + expires;
+    document.cookie = cName + "=" + cValue + ";" + expires + "path=/";;
 }
   
 function getCookie(cName) {
@@ -147,25 +166,32 @@ function removeCookie(cName) {
 function decodeCC(input, elementType) {
     const output = document.createElement(elementType)
     // split the input at the "§" symbol, which announces a colour code in Minecraft
-    array = input.split(/\u00A7/)
+    if (getCookie("showMCColours") == "true" || showMCCoulours == true) {
+        array = input.split(/\u00A7/)
 
-    for (segment of array) {
-        // the colour code is always at the beggining of the segment
-        cCode = segment.charAt(0)
-        // removes the colour code so it does not appear in the final text
-        segment = segment.replace(cCode, "")
+        for (segment of array) {
+            // the colour code is always at the beggining of the segment
+            cCode = segment.charAt(0)
+            // removes the colour code so it does not appear in the final text
+            segment = segment.replace(cCode, "")
 
-        // empty strings in the array are possible due to how the `split()` method works, this works around that
-        if (segment != "") {
-            // creates a span element with the segments text as the content
-            const cSegment = document.createElement("span")
-            cSegment.textContent = segment
-            // adds a class based on the colour code so it can be decoded in CSS
-            cSegment.classList.add(`cc_${cCode}`)
+            // empty strings in the array are possible due to how the `split()` method works, this works around that
+            if (segment != "") {
+                // creates a span element with the segments text as the content
+                const cSegment = document.createElement("span")
+                cSegment.textContent = segment
+                // adds a class based on the colour code so it can be decoded in CSS
+                cSegment.classList.add(`cc_${cCode}`)
 
-            // adds the current element to the output element
-            output.append(cSegment)
+                // adds the current element to the output element
+                output.append(cSegment)
+            }
         }
+    } else {
+        filteredInput = input.replace(/(\u00A7(?=[a-z0-9])|(?<=\u00A7)[a-z0-9])/g, "")
+
+        output.classList.add("cc_7")
+        output.textContent = filteredInput
     }
 
     return output
