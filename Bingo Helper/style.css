@@ -49,7 +49,7 @@ div#borger {
     position: absolute;
     z-index: 5;
 
-    transition: all 0s 5s;
+    transition: all 0s 0.75s;
 
     &.active {
         width: 25vw;
