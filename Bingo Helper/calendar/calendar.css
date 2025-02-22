@@ -244,6 +244,22 @@ div.tooltip {
     
         font-weight: bold;
         font-size: 32px;
+
+        &.slot1 {
+            color: #FF5555; 
+        }
+        &.slot2 {
+            color: #55FF55;
+        }
+        &.slot3 {
+            color: #55FFFF;
+        }
+        &.slot4 {
+            color: #FFFF55;
+        }
+        &.slot5 {
+            color: #FF55FF;
+        }
     }
 
     & span.ministerPerk {

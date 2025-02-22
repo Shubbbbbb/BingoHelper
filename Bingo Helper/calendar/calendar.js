@@ -162,7 +162,7 @@ function getCalendar() {
     }
 }
 
-fetch("https://api.hypixel.net/v2/resources/skyblock/election")
+    fetch("https://api.hypixel.net/v2/resources/skyblock/election")
     .then((response) => {
         if (!response.ok) {
         throw new Error(`HTTP error, status = ${response.status}`);
@@ -285,6 +285,7 @@ fetch("https://api.hypixel.net/v2/resources/skyblock/election")
                         perkName = document.createElement("span")
                         perkName.textContent = data.current.candidates[tempInt].perks[pk].name
                         perkName.classList.add("currentPerkName")
+                        perkName.classList.add("slot" + (tempInt + 1))
 
                         // the added "§7" is required as the perk description doesnt include a starting colour code for some reason
                         perkDesc = decodeCC("§7" + data.current.candidates[tempInt].perks[pk].description, "span")
@@ -398,12 +399,20 @@ fetch("https://api.hypixel.net/v2/resources/skyblock/election")
             tooltip.classList.add("tooltipContainer")
             tooltip.textContent = tempInt + 1
 
+            for (pcd = 0; pcd < 5; pcd++) {
+                tempStr = data.mayor.election.candidates[pcd].name
+                if (tempStr == data.mayor.name) {
+                    break;
+                }
+            }
+
             try {
                 data.mayor.perks[tempInt].name
 
                 currentName = document.createElement("span")
                 currentName.innerHTML = data.mayor.perks[tempInt].name
                 currentName.classList.add("currentPerkName")
+                currentName.classList.add("slot" + (pcd + 1))
 
                 // the added "§7" is required as the perk description doesnt include a starting colour code for some reason
                 currentDescr = decodeCC("§7" + data.mayor.perks[tempInt].description, "span")
@@ -434,6 +443,13 @@ fetch("https://api.hypixel.net/v2/resources/skyblock/election")
         try {
             console.log(data.mayor.minister.name)
 
+            for (pcd = 0; pcd < 5; pcd++) {
+                tempStr = data.mayor.election.candidates[pcd].name
+                if (tempStr == data.mayor.minister.name) {
+                    break;
+                }
+            }
+
             currentMinister = document.createElement("div")
             currentMinister.id = "ministerDisplay"
 
@@ -462,12 +478,9 @@ fetch("https://api.hypixel.net/v2/resources/skyblock/election")
             currentName = document.createElement("span")
             currentName.innerHTML = data.mayor.minister.perk.name
             currentName.classList.add("currentPerkName")
+            currentName.classList.add("slot" + (pcd + 1))
     
-            tempStr = data.mayor.minister.perk.description
-            tempStr = tempStr.replace(/(\u00A7(?=[a-z0-9])|(?<=\u00A7)[a-z0-9])/g, "")
-    
-            currentDescr = document.createElement("span")
-            currentDescr.innerHTML = tempStr
+            currentDescr = decodeCC("§7" + data.mayor.minister.perk.description, "span")
             currentDescr.classList.add("currentPerkDesc")
     
             tooltipText = document.createElement("div")
