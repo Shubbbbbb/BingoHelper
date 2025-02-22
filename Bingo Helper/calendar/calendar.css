@@ -394,10 +394,6 @@ span.percent {
     opacity: 0.9;
 }
 
-.currentPerkName.ministerPerk, .currentPerkDesc.ministerPerk {
-    color: #B6C59A !important;
-}
-
 span#electionStatus {
     width: 640px;
 

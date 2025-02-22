@@ -278,11 +278,8 @@ fetch("https://api.hypixel.net/v2/resources/skyblock/election")
                         perkName.textContent = data.current.candidates[tempInt].perks[pk].name
                         perkName.classList.add("currentPerkName")
 
-                        tempStr = data.current.candidates[tempInt].perks[pk].description
-                        tempStr = tempStr.replace(/(\u00A7(?=[a-z0-9])|(?<=\u00A7)[a-z0-9])/g, "")
-
-                        perkDesc = document.createElement("span")
-                        perkDesc.textContent = tempStr
+                        // the added "§7" is required as the perk description doesnt include a starting colour code for some reason
+                        perkDesc = decodeCC("§7" + data.current.candidates[tempInt].perks[pk].description, "span")
                         perkDesc.classList.add("currentPerkDesc")
 
                         if (data.current.candidates[tempInt].perks[pk].minister == true) {
@@ -403,11 +400,8 @@ fetch("https://api.hypixel.net/v2/resources/skyblock/election")
                 currentName.innerHTML = data.mayor.perks[tempInt].name
                 currentName.classList.add("currentPerkName")
 
-                tempStr = data.mayor.perks[tempInt].description
-                tempStr = tempStr.replace(/(\u00A7(?=[a-z0-9])|(?<=\u00A7)[a-z0-9])/g, "")
-
-                currentDescr = document.createElement("span")
-                currentDescr.innerHTML = tempStr
+                // the added "§7" is required as the perk description doesnt include a starting colour code for some reason
+                currentDescr = decodeCC("§7" + data.mayor.perks[tempInt].description, "span")
                 currentDescr.classList.add("currentPerkDesc")
 
                 tooltipText = document.createElement("div")
