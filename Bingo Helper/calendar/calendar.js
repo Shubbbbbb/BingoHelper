@@ -274,6 +274,14 @@ fetch("https://api.hypixel.net/v2/resources/skyblock/election")
 
                 for (let pk = 0; pk < 4; pk ++) {
                     try {
+                        ministerPerk = ""
+
+                        if (data.current.candidates[tempInt].perks[pk].minister == true) {
+                            ministerPerk = document.createElement("span")
+                            ministerPerk.textContent = "✯"
+                            ministerPerk.classList.add("ministerPerk")
+                        }
+                        
                         perkName = document.createElement("span")
                         perkName.textContent = data.current.candidates[tempInt].perks[pk].name
                         perkName.classList.add("currentPerkName")
@@ -282,12 +290,9 @@ fetch("https://api.hypixel.net/v2/resources/skyblock/election")
                         perkDesc = decodeCC("§7" + data.current.candidates[tempInt].perks[pk].description, "span")
                         perkDesc.classList.add("currentPerkDesc")
 
-                        if (data.current.candidates[tempInt].perks[pk].minister == true) {
-                            perkName.classList.add("ministerPerk")
-                            perkDesc.classList.add("ministerPerk")
-                        }
 
-                        perks.append(perkName, document.createElement("br"), perkDesc, document.createElement("br"), document.createElement("br"))
+
+                        perks.append(ministerPerk, perkName, document.createElement("br"), perkDesc, document.createElement("br"), document.createElement("br"))
                     }
                     catch {
                         perkName = ""
