@@ -81,14 +81,14 @@ div#borger {
         height: 60%;
 
         position: absolute;
-        left: -25vw;
+        left: -40vw;
 
-        transition: left 0.75s;
+        transition: left 1s;
 
         &.active {
             left: 0vw;
 
-            transition: left 0.45s;
+            transition: left 0.5s;
         }
     }
 
