@@ -21,48 +21,25 @@ if (getCookie("specialMayorCalendar") == "false") {
 }
 
 function burgerMenu() {
-    const BG = document.getElementById("burgerMenuBG")
-    const BurgerIcon = document.getElementById("burgerIcon")
-    const BurgerOptions = document.getElementById("optionList")
+    const elements = [document.getElementById("burgerMenuBG"), document.getElementById("burgerIcon"), document.getElementById("borger"), document.getElementById("optionList")]
 
-    if (isBurgOpen == false) {
-        // open Burger Menu
-        BG.classList.add("active")
-        BurgerIcon.classList.add("active")
-        BurgerOptions.classList.add("active")
-
-        isBurgOpen = true
-    } else {
-        // close Burger Menu
-        BG.classList.remove("active")
-        BurgerIcon.classList.remove("active")
-        BurgerOptions.classList.remove("active")
-
-        isBurgOpen = false
-    }
+    elements.forEach(element => element.classList.toggle("active"))
+    isBurgOpen = !isBurgOpen
 }
 
 function secondsInTimer() {
     const checkmark = document.getElementById("checkmark1")
 
-    if (timerSeconds == false) {
-        checkmark.classList.add("active")
+    checkmark.classList.toggle("active")
+    timerSeconds = !timerSeconds
+    setCookie("timerSeconds", timerSeconds)
 
-        setCookie("timerSeconds", "true")
-
-        timerSeconds = true
-
+    if (timerSeconds == true) {
         // makes the timer still refresh if live updating is turned off
         if (getCookie("liveUpdates") == "false" || liveUpdates == false) {
             timerRefresh = setInterval(getTimerTime, 1000)
         }
     } else {
-        checkmark.classList.remove("active")
-
-        setCookie("timerSeconds", "false")
-
-        timerSeconds = false
-
         // stops the timer from refreshing if live updating is turned off
         if (getCookie("liveUpdates") == "false" || liveUpdates == false) {
             clearInterval(timerRefresh)
@@ -73,13 +50,11 @@ function secondsInTimer() {
 function liveUpdating() {
     const checkmark = document.getElementById("checkmark2")
 
-    if (liveUpdates == false) {
-        checkmark.classList.add("active")
+    checkmark.classList.toggle("active")
+    liveUpdates = !liveUpdates
+    setCookie("liveUpdates", liveUpdates)
 
-        setCookie("liveUpdates", "true")
-
-        liveUpdates = true
-
+    if (liveUpdates == true) {
         try {
         timerRefresh = setInterval(getTimerTime, 1000)
         currentEventRefresh = setInterval(getCurrentEvents, 60000);
@@ -88,12 +63,6 @@ function liveUpdating() {
         playerDataRefresh = setInterval(getPlayerData, 60000)
         } catch {}
     } else {
-        checkmark.classList.remove("active")
-
-        setCookie("liveUpdates", "false")
-
-        liveUpdates = false
-
         try {
             clearInterval(timerRefresh)
             clearInterval(currentEventRefresh)
@@ -109,26 +78,18 @@ function liveUpdating() {
 function specialMayorsOnCalendar() {
     const checkmark = document.getElementById("checkmark3")
 
-    if (showSpecialMayors == false) {
-        checkmark.classList.add("active")
+    checkmark.classList.toggle("active")
+    showSpecialMayors = !showSpecialMayors
+    setCookie("specialMayorCalendar", showSpecialMayors)
 
-        setCookie("specialMayorCalendar", "true")
-
-        showSpecialMayors = true
-
+    if (showSpecialMayors == true) {
         getCalendar()
     } else {
-        checkmark.classList.remove("active")
-
-        setCookie("specialMayorCalendar", "false")
-
-        showSpecialMayors = false
-
         try {
-            document.querySelectorAll('.derpyIcon').forEach(e => e.remove());
+            document.querySelectorAll('.derpyIcon').forEach(element => element.remove());
         } catch {}
         try {
-            document.querySelectorAll('.jerryIcon').forEach(e => e.remove());
+            document.querySelectorAll('.jerryIcon').forEach(element => element.remove());
         } catch {}
     }
 }

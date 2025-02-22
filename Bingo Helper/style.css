@@ -43,11 +43,20 @@ nav {
 }
 
 div#borger {
-    width: 25vw;
-    height: 85vh;
+    width: 0;
+    height: 0;
 
     position: absolute;
     z-index: 5;
+
+    transition: all 0s 5s;
+
+    &.active {
+        width: 25vw;
+        height: 85vh; 
+
+        transition: all 0s;
+    }
 
     & img#burgerIcon {
         width: 80px;
