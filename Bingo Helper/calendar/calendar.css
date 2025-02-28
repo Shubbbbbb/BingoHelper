@@ -1,4 +1,4 @@
-div#spacer {
+div#weekDays {
     height: 0px;
 
     display: flex;
@@ -19,7 +19,7 @@ span.weekDay {
     user-select: none;
 }
 
-div#wrapper {
+div#spacer {
     height: 88vh;
 
     display: flex;

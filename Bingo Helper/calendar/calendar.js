@@ -1,6 +1,6 @@
 function getCalendar() {
     const cellList = document.getElementById("calendar")
-    const weekDays = document.getElementById("spacer")
+    const weekDays = document.getElementById("weekDays")
 
     while (cellList.hasChildNodes()) {
         cellList.removeChild(cellList.firstChild);
