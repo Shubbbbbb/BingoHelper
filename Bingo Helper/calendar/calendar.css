@@ -34,7 +34,7 @@ div#calendar {
 
     margin: auto;
     top: 50%;
-    transform: translate(384px, 40px);
+    transform: translate(23.5%, 40px);
 
     display: flex;
     flex-flow: wrap;
@@ -287,7 +287,7 @@ div#ministerDisplay {
     
     position: absolute;
     top: 8vh;
-    transform: translate(560px, 64px);
+    transform: translate(200%, 64px);
 
     display: flex;
     flex-flow: row wrap;
@@ -326,7 +326,8 @@ div#candidates {
     height: 672px;
 
     position: absolute;
-    transform: translate(128px, -760px);
+    top: 40%;
+    left: 64px;
 
     display: flex;
     flex-flow: row;
