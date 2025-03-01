@@ -100,7 +100,7 @@ function liveUpdating() {
         try {
         playerDataRefresh = setInterval(getPlayerData, 60000)
         } catch {}
-    } else {
+    } else if (timerSeconds == false) {
         try {
             clearInterval(timerRefresh)
             clearInterval(currentEventRefresh)
