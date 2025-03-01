@@ -115,8 +115,8 @@ function liveUpdating() {
 
 function setCookie(cName, cValue) {
     // does some mathy stuff to get the month and year of the next month
-    year = new Date().getFullYear
-    month = new Date().getMonth
+    year = new Date().getFullYear()
+    month = new Date().getMonth()
     if (month == 11) {
         month = 0
         year ++
@@ -127,10 +127,10 @@ function setCookie(cName, cValue) {
     // gets the date of the 1st of the next month
     const expDate = new Date(year, month, 1)
     // turns 'expDate' to Coordinated Universal Time (dont ask me why the abbreviation is UTC) and puts it in the cookie syntax (which does NOT include spaces)
-    let expires = "expires=" + expDate.toUTCString();
+    let expires = "expires=" + expDate + ";";
 
     // adds the name and value of the cookie in the syntax along with the expiration date
-    document.cookie = cName + "=" + cValue + ";" + expires + "path=/";;
+    document.cookie = cName + "=" + cValue + ";" + expires + "path=/;";
 }
   
 function getCookie(cName) {
