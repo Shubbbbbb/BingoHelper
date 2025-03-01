@@ -81,6 +81,7 @@ div#borger {
         height: 60%;
 
         position: absolute;
+        top: 96px;
         left: -40vw;
 
         transition: left 1s;
@@ -94,7 +95,6 @@ div#borger {
 
     & li {
         position: relative;
-        top: 96px;
 
         margin: 0 0 64px 0;
 
