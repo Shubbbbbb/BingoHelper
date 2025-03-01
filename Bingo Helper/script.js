@@ -1,26 +1,13 @@
 isBurgOpen = false
-
-liveUpdates = true
-if (getCookie("liveUpdates") == "false") {
-    liveUpdating()
-} else {
-    // had to place this here due to load timing issues
-    try {
-    currentEventRefresh = setInterval(getCurrentEvents, 60000);
-    } catch {}
-}
 timerSeconds = false
-if (getCookie("timerSeconds") == "true") {
-    secondsInTimer()
-}
-showSpecialMayors = true
-if (getCookie("specialMayorCalendar") == "false") {
-    specialMayorsOnCalendar()
-}
-showMCCoulours = true
-if (getCookie("showMCColours") == "false") {
-    mcColours()
-}
+showSpecialMayors = false
+showMCCoulours = false
+liveUpdates = false
+
+if (getCookie("timerSeconds") == "true") { secondsInTimer() }
+if (getCookie("specialMayorCalendar") == "" || "true") { specialMayorsOnCalendar() }
+if (getCookie("showMCColours") == "" || "true") {  mcColours() }
+if (getCookie("liveUpdates") == "true") { liveUpdating() }
 
 function burgerMenu() {
     const elements = [document.getElementById("burgerMenuBG"), document.getElementById("burgerIcon"), document.getElementById("borger"), document.getElementById("optionList")]
@@ -57,7 +44,7 @@ function specialMayorsOnCalendar() {
     setCookie("specialMayorCalendar", showSpecialMayors)
 
     if (showSpecialMayors == true) {
-        getCalendar()
+        try { getCalendar() } catch {}
     } else {
         try {
             document.querySelectorAll('.derpyIcon').forEach(element => element.remove());
