@@ -2,14 +2,19 @@
 
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="about.css">
         <link rel="stylesheet" type="text/css" href="../style.css">
-        <link rel="stylesheet" type="text/css" href="./about.css">
+        <script type="text/javascript" src="../script.js" defer></script>
+
         <link id="favicon" rel="icon" type="image/x-icon" href="../img/icon.png">
 
         <title>Bingo Helper</title>
     </head>
 
     <body>
+        <div style="height: 0; position: sticky; top: 0;">
+            <div id="headerBG"></div>
+        </div>
         <header>
 
         </header>
@@ -18,9 +23,103 @@
             <a href="../board/board.html">Bingo Board</a>
             <a href="../calendar/calendar.html">Calendar</a>
         </nav>
+        <burger>
+            <div id="burgerMenuBG"></div>
+            <div id="borger">
+                <img src="../img/burger.png" onclick="burgerMenu()" id="burgerIcon">
+                <ul id="optionList">
+                    <li onclick="secondsInTimer()"><button id="checkbox1" onclick="secondsInTimer()"><img src="../img/checkmark.png" id="checkmark1"></button>Show seconds in timer</li>
+                    <li onclick="specialMayorsOnCalendar()"><button id="checkbox3" onclick="specialMayorsOnCalendar()"><img src="../img/checkmark.png" id="checkmark2"></button>Show special mayors on the calendar</li>
+                    <li onclick="mcColours()"><button id="checkbox3" onclick="mcColours()"><img src="../img/checkmark.png" id="checkmark3"></button>Show extra colours</li>
+                    <li onclick="liveUpdating()"><button id="checkbox2" onclick="liveUpdating()"><img src="../img/checkmark.png" id="checkmark4"></button>Live data updates</li>
+                </ul>
+            </div>
+        </burger>
         <main>
-            <article>
+            <article id="description">
+                <span>
+                    Lorem ipsum odor amet, consectetuer adipiscing elit. Vestibulum maximus libero facilisi, integer et interdum. 
+                    Curabitur risus suspendisse consectetur libero curabitur ut euismod blandit! Blandit commodo cursus ultrices finibus risus laoreet aenean metus. 
+                    Suspendisse massa maximus vulputate justo facilisis pharetra feugiat.
+                </span>
+            </article>
 
+            <article id="aboutMe">
+                <h1>Who am I?</h1>
+
+                <span>
+                    Lorem ipsum odor amet, consectetuer adipiscing elit. Praesent euismod placerat pretium facilisi maximus. 
+                    Proin hac litora ante lacus nam dis scelerisque ac. <a href="https://www.youtube.com/@shubbb66">Pharetra</a> leo vitae faucibus ex arcu neque mauris gravida pulvinar. 
+                    Lacinia vivamus in dui dis, urna porta ipsum nibh. Sollicitudin mi dui imperdiet habitasse nascetur laoreet lacinia id. Molestie scelerisque quisque lectus nisl mi purus augue ultrices per. 
+                    Per tempor efficitur facilisis facilisis sem quis eleifend vel. Natoque varius porta vitae gravida blandit leo sapien posuere.
+                </span>
+
+                <iframe src="https://www.youtube.com/embed/MQ-Ghy4VJMY?controls=0" title="creepy crawly" frameborder="0" allow="encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </article>
+
+            <div id="helpfulRecources">
+                <h1>Helpful Recources</h1>
+
+                <article>
+                    <a href="https://wiki.hypixel.net/">Hypixel Skyblock Wiki</a> <br>
+                    <span>
+                        The Official Hypixel Skyblock Wiki, maintained by the community. <br>
+                        Probably the most expansive archive of information related to Skyblock.
+                        I would not have been able to create this without the work the community puts in to maintain this wiki.
+                    </span>
+                </article>
+                <article>
+                    <a href="https://hypixel.net/forums/">Hypixel Forums</a> <br>
+                    <span>
+                        An official forum for all things Hypixel related. <br>
+                        This is the best place to find information that can't easily be found elsewhere on the internet.
+                        Highly reccomend checking here you have a Hypixel related problem.
+                    </span>
+                </article>
+                <article>
+                    <a href="https://sky.shiiyu.moe/">SkyCrypt</a> <br>
+                    <span>
+                        Open source Skyblock stat viewer with tons of useful features. <br>
+                        Handy if you want to brag about your digital pixels to your friends.
+                        Probably useful for other stuff I guess.
+                    </span>
+                </article>
+
+                <article>
+                    <a href="https://api.hypixel.net/">Hypixel API docs</a> <br>
+                    <span>
+                        Official documentation for the Hypixel API. <br>
+                        Thourough and easy to understand, great place to start if you want to work with the Hypixel API.
+                    </span>
+                </article>
+                <article>
+                    <a href="https://github.com/Electroid/mojang-api">Electroid's Mojang API alternative</a> <br>
+                    <span>
+                        An alternative to the Mojant API. <br>
+                        I couldn't get the Mojang API to work myself, so this saved me a lot of hassle.
+                    </span>
+                </article>
+                <article>
+                    <a href="https://crafatar.com/">Craftatar API</a> <br>
+                    <span>
+                        API that serves png's of Minecraft skins. <br>
+                        Absolute godsend for any project that requires the display of a minecraft skin.
+                    </span>
+                </article>
+            </div>
+
+            <article id="specialThanks">
+                <h2>Special Thanks</h2>
+
+                <span>
+                    thank you to 
+                    <ul>
+                        <li>Aiden</li>
+                        <li>MyMistake</li>
+                        <li>OMP4</li>
+                    </ul>
+                    for helping me make decisions and overall support!
+                </span>
             </article>
         </main>
         <footer>

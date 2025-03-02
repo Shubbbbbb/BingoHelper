@@ -13,6 +13,9 @@
     </head>
 
     <body onload="getBingoBoard()">
+        <div style="height: 0; position: sticky; top: 0;">
+            <div id="headerBG"></div>
+        </div>
         <header>
 
         </header>
@@ -21,7 +24,7 @@
             <a href="../board/board.html" class="active">Bingo Board</a>
             <a href="../calendar/calendar.html">Calendar</a>
         </nav>
-        <main>
+        <burger>
             <div id="burgerMenuBG"></div>
             <div id="borger">
                 <img src="../img/burger.png" onclick="burgerMenu()" id="burgerIcon">
@@ -32,6 +35,8 @@
                     <li onclick="liveUpdating()"><button id="checkbox2" onclick="liveUpdating()"><img src="../img/checkmark.png" id="checkmark4"></button>Live data updates</li>
                 </ul>
             </div>
+        </burger>
+        <main>
             <div id="wrapper">
                 <board id="board">
 

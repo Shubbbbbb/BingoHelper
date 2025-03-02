@@ -3,16 +3,34 @@
 }
 
 body {
+    min-height: 98.8vh;
+
+    position: relative;
+
     background-color: #353535;
     color: #D7D7D7;
 }
 
+div#headerBG {
+    width: 100%;
+    height: calc(8px + 2vh);
+
+    background-color: #353535;
+}
+
 header {
     height: 2vh;
+
+    position: sticky;
+    top: 8px;
+
     background-color: #252525;
 }
 
 nav {
+    position: sticky;
+    top: calc(8px + 2vh);
+
     display: flex;
     flex-wrap: nowrap;
 
@@ -42,145 +60,154 @@ nav {
     }
 }
 
-div#borger {
-    width: 0;
-    height: 0;
+burger {
+    position: sticky;
+    top: calc(66px + 2vh);
 
-    position: absolute;
-    z-index: 5;
-
-    transition: all 0s 0.75s;
-
-    &.active {
-        width: 25vw;
-        height: 85vh; 
-
-        transition: all 0s;
-    }
-
-    & img#burgerIcon {
-        width: 80px;
-        height: 80px;
+    & div#borger {
+        width: 0;
+        height: 0;
 
         position: absolute;
-        left: -8px;
-    
-        cursor: pointer;
+        z-index: 5;
 
-        transition: left 0.65s 0s;
+        transition: all 0s 0.75s;
 
         &.active {
-            left: 21.5vw;
+            width: 25vw;
+            height: 85vh; 
 
-            transition: left 0.5s 0s;
+            transition: all 0s;
         }
-    }
 
-    & ul {
-        width: auto;
-        height: 60%;
-
-        position: absolute;
-        top: 96px;
-        left: -40vw;
-
-        transition: left 1s;
-
-        &.active {
-            left: 0vw;
-
-            transition: left 0.5s;
-        }
-    }
-
-    & li {
-        position: relative;
-
-        margin: 0 0 64px 0;
-
-        display: flex;
-        flex-flow: row nowrap;
-        align-items: center;
-
-        font-size: 28px;
-        text-indent: 48px;
-
-        list-style-type: none;
-        cursor: pointer;
-        user-select: none;
-
-        & button {
-            width: 32px;
-            height: 32px;
+        & img#burgerIcon {
+            width: 80px;
+            height: 80px;
 
             position: absolute;
-
-            margin: 0 12px 0 0;
-    
-            background-color: #353535;
-
-            border: 4px solid #555555;
+            left: -8px;
+        
             cursor: pointer;
 
-            & img {
-                width: inherit;
-                height: inherit;
+            transition: left 0.65s 0s;
 
-                transform: translate(-8px, -5px);
+            &.active {
+                left: 21.5vw;
 
-                opacity: 0;
+                transition: left 0.5s 0s;
+            }
+        }
 
-                &.active {
-                    opacity: 0.8 !important;
+        & ul {
+            width: auto;
+            height: 60%;
+
+            position: absolute;
+            top: 96px;
+            left: -40vw;
+
+            transition: left 1s;
+
+            &.active {
+                left: 0vw;
+
+                transition: left 0.5s;
+            }
+        }
+
+        & li {
+            position: relative;
+
+            margin: 0 0 64px 0;
+
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+
+            font-size: 28px;
+            text-indent: 48px;
+
+            list-style-type: none;
+            cursor: pointer;
+            user-select: none;
+
+            & button {
+                width: 32px;
+                height: 32px;
+
+                position: absolute;
+
+                margin: 0 12px 0 0;
+        
+                background-color: #353535;
+
+                border: 4px solid #555555;
+                cursor: pointer;
+
+                & img {
+                    width: inherit;
+                    height: inherit;
+
+                    transform: translate(-8px, -5px);
+
+                    opacity: 0;
+
+                    &.active {
+                        opacity: 0.8 !important;
+                    }
                 }
             }
-        }
-        &:hover button {
-            background-color: #353535;
-            border: 4px solid #505050;
+            &:hover button {
+                background-color: #353535;
+                border: 4px solid #505050;
 
-            & img {
-                opacity: 0.2;
+                & img {
+                    opacity: 0.2;
+                }
+            }
+            &:active button {
+                background-color: #454545 !important;
+                border: 4px solid #B6C59A !important;
             }
         }
-        &:active button {
-            background-color: #454545 !important;
-            border: 4px solid #B6C59A !important;
+    }
+
+    & div#burgerMenuBG {
+        width: 0;
+        height: 0;
+
+        position: absolute;
+        top: 97px;
+        z-index: 4;
+
+        background-color: #404040;
+
+        opacity: 0;
+
+        transition: all 0.75s;
+
+        &.active {
+            width: 24.6vw;
+            height: 86.66vh;
+
+            opacity: 1;
+
+            transition: all 0.48s, opacity 0.3s;
         }
     }
 }
 
-div#burgerMenuBG {
-    width: 0;
-    height: 0;
-
-    position: absolute;
-    top: 97px;
-    z-index: 4;
-
-    background-color: #404040;
-
-    opacity: 0;
-
-    transition: all 0.75s;
-
-    &.active {
-        width: 24.6vw;
-        height: 86.66vh;
-
-        opacity: 1;
-
-        transition: all 0.48s, opacity 0.3s;
-    }
+main {
+    padding-bottom: 4rem;
 }
 
 footer {
     width: 98.8vw;
-    height: 4.2vh;
-    padding: 0.5vh;
+    height: 4.2rem;
+    padding: 0.5rem;
 
     position: absolute;
-    bottom: 8px;
+    bottom: 0;
 
     display: flex;
     align-items: center;

@@ -1,0 +1,62 @@
+article {
+    text-align: center;
+}
+
+article#description {
+    width: 60%;
+    margin: 48px 20% 0 20%;
+
+    & span {
+        text-align: center;
+        font-size: 24px;
+    }
+}
+
+article#aboutMe {
+    width: 40%;
+    margin: 128px 30% 0 30%;
+    
+    & h1 {
+        font-size: 48px;
+    }
+
+    & span {
+        width: 50%;
+
+        font-size: 20px;
+    }
+
+    & iframe {
+        aspect-ratio: 16/9;
+        width: 480px;
+
+        position: absolute;
+        top: 22%;
+        right: 128px;
+    }
+}
+
+div#helpfulRecources {
+    width: 80%;
+    margin: 96px 10% 0 10%;
+
+    & h1 {
+        /* when I delete this it breaks for some reason??? guess I'm getting coconut.png'd */
+        text-align: center;
+    }
+
+    & article {
+        height: auto;
+        width: 26.5%;
+    }
+
+}
+
+article#specialThanks {
+    width: 40%;
+    margin: 96px 30% 96px 30%;
+
+    & ul {
+        list-style: none;
+    }
+}
