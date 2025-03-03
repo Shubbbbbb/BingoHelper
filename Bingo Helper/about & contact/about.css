@@ -14,8 +14,9 @@ article#description {
 
 article#aboutMe {
     width: 40%;
-    margin: 128px 30% 0 30%;
-    
+
+    margin: 12% 30% 0 30%;
+   
     & h1 {
         font-size: 48px;
     }
@@ -31,23 +32,44 @@ article#aboutMe {
         width: 480px;
 
         position: absolute;
-        top: 22%;
-        right: 128px;
+        top: 30%;
+        right: 4%;
     }
 }
 
 div#helpfulRecources {
     width: 80%;
-    margin: 96px 10% 0 10%;
+    height: auto;
+
+    margin: 8% 10% 0 10%;
+
+    display: flex;
+    flex-flow: row wrap;
+    align-items: start;
+    justify-content: center;
 
     & h1 {
+        width: 100%;
         /* when I delete this it breaks for some reason??? guess I'm getting coconut.png'd */
         text-align: center;
     }
 
     & article {
-        height: auto;
         width: 26.5%;
+        height: auto;
+
+        margin: 1% 2%;
+        
+        background-color: #454545;
+
+        border: solid 8px #454545;
+        border-radius: 20px;
+
+        & > a {
+            color: #FFF;
+            text-decoration: none;
+            font-size: 22px;
+        }
     }
 
 }

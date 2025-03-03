@@ -100,7 +100,7 @@ burger {
 
         & ul {
             width: auto;
-            height: 60%;
+            height: 60vh;
 
             position: absolute;
             top: 96px;
@@ -177,7 +177,7 @@ burger {
         height: 0;
 
         position: absolute;
-        top: 97px;
+        top: 5px;
         z-index: 4;
 
         background-color: #404040;
@@ -188,7 +188,7 @@ burger {
 
         &.active {
             width: 24.6vw;
-            height: 86.66vh;
+            height: 86.66%;
 
             opacity: 1;
 
@@ -198,6 +198,7 @@ burger {
 }
 
 main {
+    height: 100%;
     padding-bottom: 4rem;
 }
 
