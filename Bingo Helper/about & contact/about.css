@@ -70,6 +70,7 @@ div#helpfulRecources {
         & > a {
             color: #FFF;
             text-decoration: none;
+            font-weight: bold;
             font-size: 24px;
 
             &:hover {
@@ -115,6 +116,7 @@ article#specialThanks {
 
             & li {
                 margin: 8px 0 0 0;
+                font-weight: bold;
             }
         }
     }
