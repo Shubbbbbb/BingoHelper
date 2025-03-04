@@ -36,14 +36,14 @@ nav {
 
     & a {
         width: calc(100% / 3);
-        height: 4vh;
+        height: 3em;
         padding: 0;
 
         margin: 0;
 
         display: inline-block;
         text-align: center;
-        line-height: 4vh;
+        line-height: 3em;
 
         background-color: #404040;
         color: #D7D7D7;
@@ -62,7 +62,7 @@ nav {
 
 burger {
     position: sticky;
-    top: calc(66px + 2vh);
+    top: calc(8px + 2vh + 3em + 24px);
 
     & div#borger {
         width: 0;
@@ -74,8 +74,8 @@ burger {
         transition: all 0s 0.75s;
 
         &.active {
-            width: 25vw;
-            height: 85vh; 
+            width: 40em;
+            height: 90vh; 
 
             transition: all 0s;
         }
@@ -92,7 +92,7 @@ burger {
             transition: left 0.65s 0s;
 
             &.active {
-                left: 21.5vw;
+                left: 35em;
 
                 transition: left 0.5s 0s;
             }
@@ -180,15 +180,15 @@ burger {
         top: 5px;
         z-index: 4;
 
-        background-color: #404040;
+        background-color: #393939;
 
         opacity: 0;
 
         transition: all 0.75s;
 
         &.active {
-            width: 24.6vw;
-            height: 86.66%;
+            width: 40em;
+            height: 90vh;
 
             opacity: 1;
 
