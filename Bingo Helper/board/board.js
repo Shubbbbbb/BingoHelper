@@ -4,7 +4,7 @@ var getPla = null
 var firstLoad = true
 
 // declare variables at highest scope to pass them between functions
-var nINT = 0
+var noteAmount = 0
 var notesButton
 var nodeRemoved = false
 
@@ -222,35 +222,35 @@ function interval() {
 }
 
 function newNote() {
-    if (nINT < 10) {
+    if (noteAmount < 10) {
         notesDisplay = document.getElementById("notesDisplay")
         if (document.getElementById("notesButton") != null) {
             notesButton = document.getElementById("notesButton")
         }
 
         noteContainer = document.createElement("div")
-        noteContainer.id = `container${nINT}`
+        noteContainer.id = `container${noteAmount}`
         noteContainer.classList.add("notesContainer")
 
         note = document.createElement("input")
-        note.id = `note${nINT}`
+        note.id = `note${noteAmount}`
         note.classList.add("note")
         note.setAttribute("maxlength", "50")
         note.setAttribute("placeholder", "")
 
         completeButton = document.createElement("button")
-        completeButton.id = `complete${nINT}`
+        completeButton.id = `complete${noteAmount}`
         completeButton.classList.add("completeButton")
 
         completeImg = document.createElement("img")
-        completeImg.id = `completeImg${nINT}`
+        completeImg.id = `completeImg${noteAmount}`
         completeImg.classList.add("completeImg")
         completeImg.setAttribute("src", "../img/checkmark.png")
 
         completeButton.append(completeImg)
 
         removeNoteButton = document.createElement("button")
-        removeNoteButton.id = `remove${nINT}`
+        removeNoteButton.id = `remove${noteAmount}`
         removeNoteButton.classList.add("removeNoteButton")
         removeNoteButton.textContent = "x"
 
@@ -258,31 +258,31 @@ function newNote() {
 
         notesDisplay.insertBefore(noteContainer, notesButton)
 
-        document.querySelector(`#note${nINT}`).addEventListener("keypress", this.stopEnterKey, false)
-        document.querySelector(`#note${nINT}`).addEventListener("blur", this.setValueCookie, false)
-        document.querySelector(`#complete${nINT}`).addEventListener("click", this.completeNote, false)
-        document.querySelector(`#remove${nINT}`).addEventListener("click", this.removeNote, false)
+        document.querySelector(`#note${noteAmount}`).addEventListener("keypress", this.stopEnterKey, false)
+        document.querySelector(`#note${noteAmount}`).addEventListener("blur", this.setValueCookie, false)
+        document.querySelector(`#complete${noteAmount}`).addEventListener("click", this.completeNote, false)
+        document.querySelector(`#remove${noteAmount}`).addEventListener("click", this.removeNote, false)
 
         if (firstLoad == true) {
-            note.value = getCookie(`value${nINT}`)
+            note.value = getCookie(`value${noteAmount}`)
 
-            console.log(getCookie(`done${nINT}`))
+            console.log(getCookie(`done${noteAmount}`))
 
             // DO NOT REMOVE THE QUOTATION MARKS. getCookie always returns a string, and not a boolean
-            if (getCookie(`done${nINT}`) == "true") {
+            if (getCookie(`done${noteAmount}`) == "true") {
                 note.classList.add("done")
                 completeImg.classList.add("done")
             }
         }
 
-        nINT ++
+        noteAmount ++
 
         if (firstLoad != true) {
-            setCookie("noteAmount", nINT)
+            setCookie("noteAmount", noteAmount)
         }
     }
     
-    if (nINT == 10 && nodeRemoved == false) {
+    if (noteAmount == 10 && nodeRemoved == false) {
         notesDisplay.removeChild(notesButton)
         nodeRemoved = true
     }
@@ -365,7 +365,7 @@ function removeNote(event) {
     tempStr = tempStr.replace("remove", "container")
     document.getElementById(tempStr).remove()
 
-    for (let lowerID = id + 1; lowerID < nINT; lowerID ++) {
+    for (let lowerID = id + 1; lowerID < noteAmount; lowerID ++) {
         for (let whatElement = 0; whatElement < 4; whatElement ++) {
             switch (whatElement) {
                 case 0:
@@ -387,14 +387,14 @@ function removeNote(event) {
         }
     }
 
-    nINT --
+    noteAmount --
     nodeRemoved = false
 
-    console.log(nINT)
+    console.log(noteAmount)
 
     notesDisplay.appendChild(notesButton)
 
-    setCookie("noteAmount", nINT)
+    setCookie("noteAmount", noteAmount)
 }
 
 function markGoal(event) {

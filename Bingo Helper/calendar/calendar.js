@@ -537,7 +537,7 @@ function getDays(tempMonth) {
             calDays = 30
             break;
         case 1:
-            if (Number.isInteger(year/4) == true) {
+            if (Number.isInteger(year/4) && (!Number.isInteger(year/100) || Number.isInteger(year/400))) {
                 calDays = 29
             } else {
                 calDays = 28
