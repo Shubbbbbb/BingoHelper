@@ -8,7 +8,7 @@ article#description {
 
     & span {
         text-align: center;
-        font-size: 26px;
+        font-size: 1.2vw;
     }
 }
 
@@ -18,21 +18,21 @@ article#aboutMe {
     margin: 12% 30% 0 30%;
    
     & h1 {
-        font-size: 48px;
+        font-size: 2.2vw;
     }
 
     & span {
         width: 50%;
 
-        font-size: 20px;
+        font-size: 1vw;
     }
 
     & iframe {
         aspect-ratio: 16/9;
         width: 480px;
 
-        position: absolute;
-        top: calc(48px + 12% + 12%);
+        position: relative;
+        top: calc(48px + 12% + 192px);
         right: 4%;
 
         z-index: -1;
@@ -52,17 +52,21 @@ div#helpfulRecources {
 
     & h1, h2 {
         width: 100%;
-        /* when I delete this it breaks for some reason??? guess I'm getting coconut.png'd */
+        /* when I delete this it breaks for some reason??? */
         text-align: center;
+
+        font-size: 1.8vw;
     }
 
     & article {
-        width: 30%;
+        min-width: 30%;
+        max-width: 32%;
         height: auto;
 
-        margin: 0% 1% 1% 1%;
+        margin: 0% auto 1% auto;
         
         background-color: #454545;
+        font-size: 1vw;
 
         border: solid 8px #454545;
         border-radius: 20px;
@@ -71,7 +75,7 @@ div#helpfulRecources {
             color: #FFF;
             text-decoration: none;
             font-weight: bold;
-            font-size: 24px;
+            font-size: 1.2vw;
 
             &:hover {
                 text-decoration: underline;
@@ -99,7 +103,7 @@ article#specialThanks {
     width: 40%;
     margin: 10% 30% 8% 30%;
 
-    font-size: 26px;
+    font-size: 1.2vw;
 
     & h2 {
         font-size: 38px;

@@ -205,6 +205,7 @@ function getPlayerData() {
 
             currentSearchHead = document.getElementById("headIcon")
             currentSearchHead.setAttribute("src", `https://crafatar.com/renders/head/${playerUUID}?overlay`)
+            currentSearchHead.setAttribute("alt", "player head")
 
             stopSearch = document.getElementById("stopSearch")
             stopSearch.textContent = "x"

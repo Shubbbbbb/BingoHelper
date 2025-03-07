@@ -110,6 +110,8 @@ function getCalendar() {
             if (tempInt == day + int || tempInt == day + calDays + int) {
                 bingo = document.createElement("img")
                 bingo.setAttribute("src", "../img/bingo.png")
+                bingo.setAttribute("alt", "bingo icon")
+                bingo.setAttribute("title", "Bingo")
                 bingo.classList.add("bingoIcon")
             }
         }
@@ -127,16 +129,20 @@ function getCalendar() {
         if (SBMonth <= 6 && SBMonthLatest > 6 || SBMonth <= 3 && SBMonthLatest > 3 || SBMonth < 6 && SBMonthLatest > 3) {
             election = document.createElement("img")
             election.setAttribute("src", "../img/election.png")
+            election.setAttribute("alt", "election icon")
+            election.setAttribute("title", "Election")
             election.classList.add("electionIcon")
 
             if (isDerpy == true) {
                 derpy = document.createElement("img")
                 derpy.setAttribute("src", "../img/derpy.png")
+                derpy.setAttribute("alt", "derpy icon")
                 derpy.classList.add("derpyIcon")
             }
             if (isJerry == true) {
                 jerry = document.createElement("img")
                 jerry.setAttribute("src", "../img/jerry.png")
+                jerry.setAttribute("alt", "jerry icon")
                 jerry.classList.add("jerryIcon")
             }
         }
@@ -151,6 +157,8 @@ function getCalendar() {
         if ((month == 11 && tempInt >= day && tempInt - day < calDays) || (month == 0 &&  tempInt < day) || lateWinter == true) {
             workshop = document.createElement("img")
             workshop.setAttribute("src", "../img/workshop.png")
+            workshop.setAttribute("alt", "workshop icon")
+            workshop.setAttribute("title", "Jerry's Workshop")
             workshop.classList.add("workshopIcon")
         } else {
             workshop = ""
@@ -230,6 +238,8 @@ function getMayorElectionData() {
 
                 candidate = document.createElement("img")
                 candidate.setAttribute("src", `../img/${tempStr}.png`)
+                candidate.setAttribute("alt", tempStr)
+                candidate.setAttribute("title", data.current.candidates[tempInt].name)
                 candidate.classList.add("candidateIcon")
 
                 container = document.createElement("div")
@@ -339,6 +349,8 @@ function getMayorElectionData() {
 
                 candidate = document.createElement("img")
                 candidate.setAttribute("src", `../img/noCandidate.png`)
+                candidate.setAttribute("alt", "unknown candidate")
+                candidate.setAttribute("title", "Uknown Candidate")
                 candidate.classList.add("candidateIcon")
 
                 votes = document.createElement("progress")
@@ -384,6 +396,8 @@ function getMayorElectionData() {
 
         mayorIcon = document.createElement("img")
         mayorIcon.setAttribute("src", `../img/${tempStr}.png`)
+        mayorIcon.setAttribute("alt", tempStr)
+        mayorIcon.setAttribute("title", data.mayor.name)
         mayorIcon.classList.add("mayorIcon")
 
         if (tempStr == "jerry") {
@@ -465,6 +479,8 @@ function getMayorElectionData() {
 
             ministerIcon = document.createElement("img")
             ministerIcon.setAttribute("src", `../img/${tempStr}.png`)
+            ministerIcon.setAttribute("alt", tempStr)
+            ministerIcon.setAttribute("title", data.mayor.minister.name)
             ministerIcon.id = "ministerIcon"
 
             align = document.createElement("div")

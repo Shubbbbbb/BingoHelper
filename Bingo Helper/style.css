@@ -36,7 +36,7 @@ nav {
 
     & a {
         width: calc(100% / 3);
-        height: 3em;
+        height: 2.5em;
         padding: 0;
 
         margin: 0;
@@ -62,7 +62,8 @@ nav {
 
 burger {
     position: sticky;
-    top: calc(8px + 2vh + 3em + 24px);
+    top: calc(8px + 2vh + 2.5em + 24px);
+    z-index: 5;
 
     & div#borger {
         width: 0;
@@ -214,6 +215,8 @@ footer {
     align-items: center;
 
     background-color: #252525;
+
+    z-index: 6;
 
     & img {
         width: 4vh;

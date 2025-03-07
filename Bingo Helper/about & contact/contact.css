@@ -1,10 +1,55 @@
 article {
-    width: 100%;
-    height: 30vh;
+    width: 80%;
+    margin: 0 10%;
     
-    margin: 4vh 0 0 0 ;
-    text-align: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
 
+    text-align: center;
     font-size: 32px;
 
+    & em {
+        width: 100%;
+        margin: 5vh 0 0 0;
+    }
+
+    & table {
+        margin: 3vh 0 0 0;
+        border-collapse: collapse;
+
+        &, tr, td {
+            border: solid 1px #555555;
+        }
+
+        & th {
+            height: 48px;
+
+            background-color: #353535;
+            font-size: 32px;
+        }
+
+        & tr {
+            font-size: 28px;
+        
+            &:nth-child(even) {
+                background-color: #505050;
+            }
+            &:nth-child(odd) {
+                background-color: #404040;
+            }
+
+            & td {
+                height: 38px;
+
+                &:nth-child(1) {
+                    width: 320px;
+                }
+                &:nth-child(2) {
+                    width: 640px;
+                }
+            }
+        }
+        
+    }
 }
