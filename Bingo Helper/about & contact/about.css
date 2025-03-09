@@ -26,17 +26,6 @@ article#aboutMe {
 
         font-size: 1vw;
     }
-
-    & iframe {
-        aspect-ratio: 16/9;
-        width: 480px;
-
-        position: relative;
-        top: calc(48px + 12% + 192px);
-        right: 4%;
-
-        z-index: -1;
-    }
 }
 
 div#helpfulRecources {
