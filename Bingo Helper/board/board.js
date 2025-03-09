@@ -363,6 +363,7 @@ function removeNote(event) {
 
     tempStr = this.id
     tempStr = tempStr.replace("remove", "container")
+    console.log(this.id)
     document.getElementById(tempStr).remove()
 
     for (let lowerID = id + 1; lowerID < noteAmount; lowerID ++) {
@@ -375,7 +376,7 @@ function removeNote(event) {
                 elementType = "note"
                 break;
                 case 2:
-                elementType = "edit"
+                elementType = "complete"
                 break;
                 case 3:
                 elementType = "remove"
